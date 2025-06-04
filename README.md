@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started
 
 Welcome to your new project.
@@ -23,3 +24,6 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+=======
+# Risk_Management
+>>>>>>> fd4db959fb0ac1bb08cbdef75af20b320757fc1d
