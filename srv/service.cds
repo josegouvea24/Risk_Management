@@ -25,7 +25,15 @@ service RiskManagementService
 
     @odata.draft.enabled
     entity Risks as
-        projection on my.Risks;
+        projection on my.Risks
+        {
+            *,
+            a_BusinessPartner as supplier
+        }
+        excluding
+        {
+            a_BusinessPartner
+        };
 
     @odata.draft.enabled
     entity Mitigations as

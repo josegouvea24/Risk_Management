@@ -30,22 +30,17 @@ annotate service.Risks with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'a_BusinessPartner_BusinessPartner',
-                Value : a_BusinessPartner_BusinessPartner,
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : miti_ID,
                 Label : 'miti_ID',
             },
             {
                 $Type : 'UI.DataField',
-                Value : a_BusinessPartner.BusinessPartnerFullName,
+                Value : supplier.BusinessPartnerFullName,
                 Label : 'BusinessPartnerFullName',
             },
             {
                 $Type : 'UI.DataField',
-                Value : a_BusinessPartner.BusinessPartnerIsBlocked,
+                Value : supplier.BusinessPartnerIsBlocked,
                 Label : 'BusinessPartnerIsBlocked',
             },
         ],
@@ -86,8 +81,8 @@ annotate service.Risks with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : a_BusinessPartner.Supplier,
-            Label : 'Supplier',
+            Value : supplier_BusinessPartner,
+            Label : 'supplier_BusinessPartner',
         },
     ],
 );
@@ -158,4 +153,39 @@ annotate service.Risks with {
         Common.ValueListWithFixedValues : true,
     )
 };
+
+annotate service.Risks with {
+    supplier_BusinessPartner @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'A_BusinessPartner',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : supplier_BusinessPartner,
+                    ValueListProperty : 'BusinessPartner',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'Customer',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'Supplier',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'BusinessPartnerCategory',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'BusinessPartnerFullName',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'BusinessPartnerIsBlocked',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};
 

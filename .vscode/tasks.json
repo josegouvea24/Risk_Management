@@ -41,32 +41,7 @@
       "enableDiscovery": "true"
     },
     {
-      "label": "npm-install",
-      "type": "process",
-      "command": "npm",
-      "args": [
-        "install"
-      ],
-      "dependsOn": [
-        "kill-cds-processes"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}/"
-      }
-    },
-    {
-      "label": "BuildMDK",
-      "type": "shell",
-      "command": "if npm list @sap/mdk-tools --depth=0 > /dev/null 2>&1; then npx mdk build --target module --ui5 --recursive;fi",
-      "dependsOn": [
-        "npm-install"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}/"
-      }
-    },
-    {
-      "label": "dev-project",
+      "label": "PreLaunchTask for Run RiskManagement with Live Data",
       "type": "process",
       "command": "npx",
       "args": [
@@ -77,11 +52,36 @@
         "BuildMDK"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
-      "label": "PreLaunchTask for Run RiskManagement with Live Data",
+      "label": "npm-install",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "install"
+      ],
+      "dependsOn": [
+        "kill-cds-processes"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "BuildMDK",
+      "type": "shell",
+      "command": "if npm list @sap/mdk-tools --depth=0 > /dev/null 2>&1; then npx mdk build --target module --ui5 --recursive;fi",
+      "dependsOn": [
+        "npm-install"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "dev-project",
       "type": "process",
       "command": "npx",
       "args": [
