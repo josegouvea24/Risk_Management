@@ -12,6 +12,7 @@
     "@sap-cloud-sdk/resilience": "^3",
     "@sap-cloud-sdk/util": "^4.0.2",
     "@sap/cds": "^8",
+    "@sap/cds-mtxs": "^2",
     "@sap/low-code-event-handler": "^1.2.5",
     "@sap/mdk-tools": "^1.13.1",
     "@sap/xsenv": ">=3.3.2 <3.3.3",
@@ -39,7 +40,8 @@
     "requires": {
       "[production]": {
         "db": "hana",
-        "auth": "xsuaa"
+        "auth": "xsuaa",
+        "multitenancy": true
       },
       "auth": {
         "[development]": {
@@ -60,7 +62,8 @@
         "csrf": true,
         "csrfInBatch": true
       }
-    }
+    },
+    "profile": "with-mtx-sidecar"
   },
   "lcap": true,
   "sapux": [
